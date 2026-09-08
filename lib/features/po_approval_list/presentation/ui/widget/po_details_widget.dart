@@ -38,7 +38,7 @@ class PoDetailsWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: [
               BoxShadow(
-                color: AppColors.titlecolor.withOpacity(0.7),
+                color: AppColors.titlecolor.withValues(alpha:0.7),
                 offset: const Offset(0, 5),
               ),
             ],

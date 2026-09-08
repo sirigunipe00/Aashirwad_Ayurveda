@@ -80,7 +80,7 @@ class _AnimatedGlowButtonState extends State<AnimatedGlowButton>
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
-                color: purpleColor.withOpacity(0.6),
+                color: purpleColor.withValues(alpha:0.6),
                 blurRadius: 20,
                 spreadRadius: 2,
               ),
@@ -199,7 +199,7 @@ class _AnimatedProcessingButtonState extends State<_AnimatedProcessingButton>
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: purpleColor.withOpacity(0.6),
+              color: purpleColor.withValues(alpha:0.6),
               blurRadius: 12,
               spreadRadius: 3,
             ),
@@ -219,7 +219,7 @@ class _AnimatedProcessingButtonState extends State<_AnimatedProcessingButton>
             ),
             SizedBox(width: 10),
             Text(
-              "Please wait...",
+              'Please wait...',
               style: TextStyle(color: Colors.white),
             ),
           ],

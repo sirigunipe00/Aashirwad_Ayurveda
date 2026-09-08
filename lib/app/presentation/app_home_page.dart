@@ -4,19 +4,35 @@ import 'package:aashirwad/app/presentation/app_update_blocprovider.dart';
 import 'package:aashirwad/app/widgets/app_feature_widget.dart';
 import 'package:aashirwad/app/widgets/app_page_view.dart';
 import 'package:aashirwad/app/widgets/app_update_dailog.dart';
-import 'package:aashirwad/core/app_router/app_route.dart';
 import 'package:aashirwad/core/core.dart';
-import 'package:aashirwad/core/ext/context_ext.dart';
-import 'package:aashirwad/core/utils/boolean_util.dart';
 import 'package:aashirwad/styles/app_colors.dart';
 import 'package:aashirwad/styles/app_text_styles.dart';
 import 'package:aashirwad/styles/icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppHomePage extends StatelessWidget {
   const AppHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+  Future<void> launchProduction() async {
+    final String base = Urls.baseUrl.replaceAll('/api', '');
+  final Uri url = Uri.parse('$base/app/production-booking-s');
+
+  try {
+    bool launched = await launchUrl(
+      url, 
+      mode: LaunchMode.externalApplication,
+    );
+  if (!launched) {
+      debugPrint('Could not launch $url');
+    }
+  } catch (e) {
+    debugPrint('Error launching URL: $e');
+
+  }
+}
     final userRoles = context.user.roles;
     return AppPageView(
       mode: PageMode.home,
@@ -44,7 +60,7 @@ class AppHomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    "${context.user.name} does not have access to view the features.",
+                    '${context.user.name} does not have access to view the features.',
                     style: AppTextStyles.featureLabelStyle(context).copyWith(
                       color: Colors.red,
                     ),
@@ -80,18 +96,28 @@ class AppHomePage extends StatelessWidget {
                           onTap: () => AppRoute.gateExit.push(context),
                         ),
                       // if (BooleanUtls.fromInt(userRoles.registration))
-                      //   AppFeatureWidget(
-                      //     icon: AppIcons.registration.toWidget(
-                      //         height: 100, width: 120, fit: BoxFit.contain),
-                      //     title: FittedBox(
-                      //       child: Text('Visitors Registration',
-                      //           style:
-                      //               AppTextStyles.featureLabelStyle(context)),
-                      //     ),
-                      //     featureColor: AppColors.registration,
-                      //     onTap: () => AppRoute.gateRegistration.push(context),
-                      //   ),
+                        AppFeatureWidget(
+                          icon: AppIcons.production.toWidget(
+                              height: 140, width: 140, fit: BoxFit.contain),
+                          title: FittedBox(
+                            child: Text('Production Bookings',
+                                style:
+                                    AppTextStyles.featureLabelStyle(context)),
+                          ),
+                          featureColor: AppColors.haintBlue.withValues(alpha: 0.7),
+                          onTap: () => launchProduction(),
+                        ),
                       // if (BooleanUtls.fromInt(userRoles.gaylord))
+                      // AppFeatureWidget(
+                      //   icon: AppIcons.stock.toWidget(
+                      //       height: 120, width: 100, fit: BoxFit.contain),
+                      //   title: FittedBox(
+                      //     child: Text('Stock Transfer',
+                      //         style: AppTextStyles.featureLabelStyle(context)),
+                      //   ),
+                      //   featureColor: const Color(0xFFFFA95F).withValues(alpha: 0.7),
+                      //   onTap: () => AppRoute.stockTransfer.push(context),
+                      // ),
                       //   AppFeatureWidget(
                       //     icon: AppIcons.gayLord.toWidget(
                       //         height: 100, width: 120, fit: BoxFit.fill),

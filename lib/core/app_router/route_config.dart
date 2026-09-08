@@ -1,3 +1,7 @@
+import 'package:aashirwad/features/stock_transfer/presentation/bloc/block_provider.dart';
+import 'package:aashirwad/features/stock_transfer/presentation/bloc/create_stock_entry_cubit.dart/stock_entry_cubit.dart';
+import 'package:aashirwad/features/stock_transfer/presentation/ui/screen/new_entry.dart';
+import 'package:aashirwad/features/stock_transfer/presentation/ui/screen/stock_entry_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:aashirwad/app/presentation/app_home_page.dart';
@@ -214,13 +218,52 @@ class AppRouterConfig {
                         )
                       ]),
                   GoRoute(
+                    path: _getPath(AppRoute.stockTransfer),
+                    builder: (context, state) {
+                      final filters = Pair(
+                        StringUtils.docStatusInt('Draft'),
+                        null,
+                      );
+                      return MultiBlocProvider(
+                        providers: [
+                          BlocProvider(
+                            create: (context) =>
+                                StockEntryBlocProvider.get().fetchStockEntries()
+                                  ..fetchInitial(filters),
+                          ),
+                        ],
+                        child: const StockEntryListScrn(),
+                      );
+                    },
+                    routes: [
+                      GoRoute(
+                        path: _getPath(AppRoute.newStockEntry),
+                        builder: (context, state) {
+                          final stockEntryName = state.extra as String?;
+                          return MultiBlocProvider(
+                            providers: [
+                              BlocProvider(
+                                create: (context) =>
+                                    StockEntryBlocProvider.get().getStockItems()
+                                      ..request(stockEntryName),
+                              ),
+                              BlocProvider(
+                                  create: (_) => $sl.get<NewStockEntryCubit>()),
+                            ],
+                            child:
+                                NewStockEntry(stockEntryName: stockEntryName),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  GoRoute(
                     path: _getPath(AppRoute.poApprovalList),
                     builder: (ctxt, state) => const PoApprovalListScrn(),
                     routes: [
                       GoRoute(
                         path: _getPath(AppRoute.poApprovalListPreview),
                         builder: (_, state) {
-                          
                           final form = state.extra as PoApprovalForm;
                           final blocprovider = PoApprovalBlocProvider.get();
                           return MultiBlocProvider(
@@ -234,7 +277,9 @@ class AppRouterConfig {
                               BlocProvider(
                                   create: (_) => blocprovider.approvePO()),
                               BlocProvider(
-                                  create: (_) => blocprovider.poAttchmentsCubit()..request(form.name)),
+                                  create: (_) =>
+                                      blocprovider.poAttchmentsCubit()
+                                        ..request(form.name)),
                               BlocProvider(
                                   create: (_) =>
                                       blocprovider.poPermissionCubit()

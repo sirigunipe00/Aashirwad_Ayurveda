@@ -21,6 +21,9 @@ abstract class _AppRoutePaths {
   static const dashboards = '/home/dashboards';
   static const dashboardView = '/home/dashboards/view';
   static const account = '/account';
+  static const stockTransfer = '/home/stockTransfer';
+  static const newStockEntry = '/home/stockTransfer/newStockEntry';
+
 }
 
 enum AppRoute {
@@ -42,6 +45,8 @@ enum AppRoute {
   poApprovalListPreview(_AppRoutePaths.poApprovalListPreview),
   dashboards(_AppRoutePaths.dashboards),
   dashboardView(_AppRoutePaths.dashboardView),
+  stockTransfer(_AppRoutePaths.stockTransfer),
+  newStockEntry(_AppRoutePaths.newStockEntry),
 
   account(_AppRoutePaths.account);
 

@@ -13,9 +13,6 @@ import 'package:aashirwad/widgets/loading_indicator.dart';
 import 'package:simple_barcode_scanner/simple_barcode_scanner.dart';
 
 class TableWidget extends StatefulWidget {
-  final List<String> lines;
-  final List<String?> names;
-  final GaylordForm form;
 
   const TableWidget({
     super.key,
@@ -23,6 +20,9 @@ class TableWidget extends StatefulWidget {
     required this.names,
     required this.form,
   });
+  final List<String> lines;
+  final List<String?> names;
+  final GaylordForm form;
 
   @override
   State<TableWidget> createState() => _TableWidgetState();

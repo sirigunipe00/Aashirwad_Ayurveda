@@ -4,9 +4,9 @@ import 'package:aashirwad/core/core.dart';
 final _reqisteredUrl = $sl.get<Urls>(instanceName: 'baseUrl');
 
 class Urls {
-  // factory Urls.aashirwadUAT() => const Urls('https://aashirwadUAT.easycloud.co.in/api');
+
   factory Urls.aashirwadUAT() => const Urls('https://ashirwaduat.easycloud.co.in/api');
-  factory Urls.aashirwadProd() => const Urls('https://htpllive.easycloud.co.in/api');
+  factory Urls.aashirwadProd() => const Urls('https://aashirwadlive.easycloud.co.in/api');
   factory Urls.local() => const Urls('192.168.0.142:8000/api');
 
   const Urls(this.url);
@@ -28,6 +28,7 @@ class Urls {
 
   static final login = '$cusWs/login';
   static final getUsers = '$cusWs/easygateentry.api.getUsers';
+  static final getList = '$cusWs/frappe.client.get_list';
 
   static final gateEntryList = '$cusWs/easygateentry.api.getGateEntry';
   static final getGateEntry = '$cusWs/easygateentry.api.getGateEntryDetails';
@@ -64,7 +65,11 @@ class Urls {
   static final submitDispatchGaylord = '$cusWs/easygateentry.api.submit_gaylord';
   static final poApprovalAttachments = '$cusWs/hilltop.api.get_po_with_attachments';
 
-  static filepath(String path) {
+  static final createStockEntry = '$cusWs/coolerpnext.api.scan_and_update';
+  static final updateStockEntry = '$cusWs/coolerpnext.api.scan_and_update';
+  static final submitStockEntry = '$cusWs/coolerpnext.api.submit_stock_entry';
+
+  static String filepath(String path) {
     return '${baseUrl.replaceAll('api', '')}/${path.replaceAll('/private', '').replaceAll("///", '/')}';
   }
 }

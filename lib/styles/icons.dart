@@ -29,13 +29,14 @@ class AppIcons {
   static const gateEntryCurves = AppIcon('$basePath/gate_entry_1.png');
   static const vehcileExit = AppIcon('$basePath/vehicle_exit.png');
   static const gateExitCurves = AppIcon('$basePath/gate_exit_1.png');
-  static const registration = AppIcon('$basePath/registration.png');
+  static const production = AppIcon('$basePath/production-removebg-preview.png');
   static const registrations = AppIcon('$basePath/registrations.png');
   static const dispatch = AppIcon('$basePath/dispatch_1.png');
   static const poApproval = AppIcon('$basePath/approval_logo.png');
   static const dashboards = AppIcon('$basePath/dashboard_logo.png');
   static const gayLord = AppIcon('$basePath/dashboard.png');
   static const approval = AppIcon('$basePath/approval.png');
+  static const stock = AppIcon('$basePath/Icon_stock_transfer.png');
 }
 
 class AppIcon {

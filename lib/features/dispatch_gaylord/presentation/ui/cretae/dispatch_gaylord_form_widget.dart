@@ -55,7 +55,7 @@ class _DispatchGaylordFormWidgetState extends State<DispatchGaylordFormWidget> {
             ),
              BarcodeTableDetails(form:widget.form),
             AppSpacer.p8(),
-            if (widget.form.status == "Draft")...[
+            if (widget.form.status == 'Draft')...[
                    BlocConsumer<SubmitDispatchGaylord, SubmitDispatchGaylordState>(
               listener: (context, state) {
                 state.maybeWhen(

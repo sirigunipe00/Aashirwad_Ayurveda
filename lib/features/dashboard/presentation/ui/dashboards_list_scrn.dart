@@ -135,12 +135,12 @@ String getTimeDifference(DateTime lastUpdated) {
   final difference = now.difference(lastUpdated);
 
   if (difference.inMinutes < 1) {
-    return "Updated just now";
+    return 'Updated just now';
   } else if (difference.inMinutes < 60) {
-    return "Updated ${difference.inMinutes} mins ago";
+    return 'Updated ${difference.inMinutes} mins ago';
   } else if (difference.inHours < 24) {
-    return "Updated ${difference.inHours} hrs ago";
+    return 'Updated ${difference.inHours} hrs ago';
   } else {
-    return "Updated ${difference.inDays} days ago";
+    return 'Updated ${difference.inDays} days ago';
   }
 }

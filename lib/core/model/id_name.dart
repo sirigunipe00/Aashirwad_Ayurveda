@@ -10,7 +10,7 @@ part 'id_name.g.dart';
 class IdName with _$IdName {
   factory IdName({
     required String id,
-    @JsonKey(defaultValue: '') required String name,
+    required String name,
   }) = _IdName;
 
   factory IdName.fromJson(Map<String, dynamic> json) =>

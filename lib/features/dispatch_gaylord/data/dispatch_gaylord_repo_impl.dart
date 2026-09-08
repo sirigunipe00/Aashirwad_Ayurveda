@@ -56,7 +56,7 @@ class DispatchGaylordRepoImpl extends BaseApiRepository
           return listdata.map((e) => GaylordItemsForm.fromJson(e)).toList();
         }
       },
-      body: jsonEncode({"DN_name": name}),
+      body: jsonEncode({'DN_name': name}),
       headers: {HttpHeaders.contentTypeHeader: 'application/json'},
     );
 
@@ -72,16 +72,16 @@ class DispatchGaylordRepoImpl extends BaseApiRepository
       url: Urls.updateDispatchGaylord,
       parser: (json) => json,
       body: jsonEncode({
-        "dn_id": id,
-        "scan_barcode": [
-          {"scan_barcode": barcoderesult}
+        'dn_id': id,
+        'scan_barcode': [
+          {'scan_barcode': barcoderesult}
         ]
       }),
       headers: {HttpHeaders.contentTypeHeader: 'application/json'},
     );
 
     final response = await post(requestConfig);
-    return response.process((r) => right("Successfully Updated"));
+    return response.process((r) => right('Successfully Updated'));
   }
 
   @override
@@ -91,8 +91,8 @@ class DispatchGaylordRepoImpl extends BaseApiRepository
       url: Urls.removeDispatchGaylord,
       parser: (json) => json,
       body: jsonEncode({
-        "scan_barcode_id": barcodeid,
-        "dn_id": id,
+        'scan_barcode_id': barcodeid,
+        'dn_id': id,
       }),
       headers: {HttpHeaders.contentTypeHeader: 'application/json'},
     );
@@ -110,7 +110,7 @@ class DispatchGaylordRepoImpl extends BaseApiRepository
         final data = json['message']['message'];
         return data;
       },
-      body: jsonEncode({"dn_id": id}),
+      body: jsonEncode({'dn_id': id}),
       headers: {HttpHeaders.contentTypeHeader: 'application/json'},
     );
 

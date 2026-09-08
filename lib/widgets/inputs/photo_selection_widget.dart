@@ -128,9 +128,6 @@ class _PhotoSelectionWidgetState extends State<PhotoSelectionWidget>
 }
 
 class ImagePreviewPage extends StatelessWidget {
-  final String title;
-  final File? image;
-  final String? imageUrl;
 
   const ImagePreviewPage({
     super.key,
@@ -138,6 +135,9 @@ class ImagePreviewPage extends StatelessWidget {
     required this.imageUrl, 
     required this.title,
   });
+  final String title;
+  final File? image;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {

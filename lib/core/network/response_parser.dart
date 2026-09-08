@@ -9,7 +9,7 @@ abstract class ApiResponseParser<T> {
       String response, ApiObjectParser<T> parser, String defErrorMessage);
 }
 
-class aashirwadApiResponseParser<T> implements ApiResponseParser<T> {
+class AashirwadApiResponseParser<T> implements ApiResponseParser<T> {
   @override
   ApiResponse<T> parse(
     String apiResponse,

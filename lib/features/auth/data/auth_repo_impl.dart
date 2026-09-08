@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:aashirwad/core/core.dart';
@@ -37,6 +36,7 @@ class AuthRepoImpl extends BaseApiRepository implements AuthRepo {
       );
 
       final response = await post(requestConfig, includeAuthHeader: false);
+      $logger.devLog('response:$response');
 
       return response.processAsync((r) async {
         if (r.data.isNull) {

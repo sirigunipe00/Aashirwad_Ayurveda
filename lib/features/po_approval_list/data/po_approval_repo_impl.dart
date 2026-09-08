@@ -58,7 +58,7 @@ class PoApprovalRepoImpl extends BaseApiRepository implements PoApprovalRepo {
         final data = json['message']['message'] as List<dynamic>;
         return data.map((e) => PoOrderItemsForm.fromJson(e)).toList();
       },
-      reqParams: {"order_id": name},
+      reqParams: {'order_id': name},
       headers: {HttpHeaders.contentTypeHeader: 'application/json'},
     );
 
@@ -74,7 +74,7 @@ class PoApprovalRepoImpl extends BaseApiRepository implements PoApprovalRepo {
       parser: (json) {
         return json['message']['can_approve'] as bool;
       },
-      reqParams: {"order_id": name},
+      reqParams: {'order_id': name},
       headers: {HttpHeaders.contentTypeHeader: 'application/json'},
     );
 

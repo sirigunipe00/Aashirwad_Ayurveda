@@ -15,9 +15,9 @@ enum PageMode2 {
   dipatchGaylord('Dispatch Gaylord'),
   poapprovallist('PO Approval List'),
   dashbaords('Dashbaords');
-
+const PageMode2(this.name);
   final String name;
-  const PageMode2(this.name);
+  
 }
 
 class AppPageView2<T extends FiltersCubit> extends StatelessWidget {
@@ -146,7 +146,7 @@ class AppPageView2<T extends FiltersCubit> extends StatelessWidget {
                 border: Border.all(color: AppColors.pageViewColor),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.black.withOpacity(0.5),
+                    color: AppColors.black.withValues(alpha:0.5),
                     blurRadius: 10,
                     offset: const Offset(0, -1),
                   )

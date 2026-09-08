@@ -110,7 +110,7 @@ class ApiClient {
           throw UnExpectedResponseException(resBody);
         }
 
-        final ApiResponseParser<T> responseParser = params.apiResponseParser ?? aashirwadApiResponseParser<T>();
+        final ApiResponseParser<T> responseParser = params.apiResponseParser ?? AashirwadApiResponseParser<T>();
         final ApiResponse<T> result = responseParser.parse(
           resBody,
           params.parser,

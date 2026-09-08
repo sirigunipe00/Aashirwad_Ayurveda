@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:isolate';
-
 import 'package:aashirwad/core/consts/urls.dart';
 import 'package:aashirwad/core/di/injector.dart';
 import 'package:aashirwad/core/logger/app_logger.dart';

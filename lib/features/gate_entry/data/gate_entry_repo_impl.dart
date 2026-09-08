@@ -90,9 +90,11 @@ class GateEntryRepoImpl extends BaseApiRepository implements GateEntryRepo {
     );
 
     final response = await post(config);
+    $logger..devLog('response:$response')
+    ..devLog('response:$config');
     return response.process((docNo) {
       final msgWithDocNo =
-          """The Gate Entry details - "${docNo.data}" have been saved successfully. Please submit it before leaving""";
+          '''The Gate Entry details - "${docNo.data}" have been saved successfully. Please submit it before leaving''';
       return right(Pair(docNo.data.valueOrEmpty, msgWithDocNo));
     });
   }
@@ -115,9 +117,11 @@ class GateEntryRepoImpl extends BaseApiRepository implements GateEntryRepo {
     );
 
     final response = await post(config);
+    $logger..devLog('response:$response')
+    ..devLog('response:$config');
     return response.process((docNo) {
       final msgWithDocNo =
-          """Gate Entry ${docNo.data} is submitted successfully.""";
+          '''Gate Entry ${docNo.data} is submitted successfully.''';
       return right(Pair(docNo.data.valueOrEmpty, msgWithDocNo));
     });
   }

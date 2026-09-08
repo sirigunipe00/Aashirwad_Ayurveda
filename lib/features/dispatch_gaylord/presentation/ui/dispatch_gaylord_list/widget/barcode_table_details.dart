@@ -32,7 +32,7 @@ class _BarcodeTableDetailsState extends State<BarcodeTableDetails> {
             )
             .where((e) => e.scanValue != null);
 
-        if (widget.form.status == "Draft" && itemLines.isEmpty) {
+        if (widget.form.status == 'Draft' && itemLines.isEmpty) {
           return Column(
             children: [
               BlocListener<UpdateDispatchGaylord, UpdateDispatchGaylordState>(
@@ -72,8 +72,8 @@ class _BarcodeTableDetailsState extends State<BarcodeTableDetails> {
           );
         } else if (itemLines.isNotEmpty) {
           List<String> lines = itemLines.map((e) => e.scanValue ?? '').toList();
-          final names = itemLines.map((e) => e.name).toList();
-          names.elementAt(0);
+          final names = itemLines.map((e) => e.name).toList()
+          ..elementAt(0);
 
           return TableWidget(
             lines: lines,

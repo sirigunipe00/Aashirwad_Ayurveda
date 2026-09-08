@@ -63,7 +63,7 @@ class _NewGateregistrationFormWidgetState
             initialValue: form.phoneNo,
             maxLength: 10,
             inputFormatters: [
-              FilteringTextInputFormatter.allow(RegExp("[0-9]")),
+              FilteringTextInputFormatter.allow(RegExp('[0-9]')),
             ],
             inputType: TextInputType.number,
             onChanged: (phoneNo) {

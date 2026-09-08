@@ -1,0 +1,102 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'stock_entry.freezed.dart';
+part 'stock_entry.g.dart';
+
+@freezed
+class StockEntry with _$StockEntry {
+  const factory StockEntry({
+    @JsonKey(name: 'name') String? name,
+    @JsonKey(name: 'owner') String? owner,
+    @JsonKey(name: 'creation') String? creation,
+    @JsonKey(name: 'modified') String? modified,
+    @JsonKey(name: 'modified_by') String? modifiedBy,
+    @JsonKey(name: 'docstatus') int? docstatus,
+    @JsonKey(name: 'idx') int? idx,
+    @JsonKey(name: 'workflow_state') String? workflowState,
+    @JsonKey(name: 'naming_series') String? namingSeries,
+    @JsonKey(name: 'stock_entry_type') String? stockEntryType,
+    @JsonKey(name: 'outgoing_stock_entry') String? outgoingStockEntry,
+    @JsonKey(name: 'purpose') String? purpose,
+    @JsonKey(name: 'add_to_transit') int? addToTransit,
+    @JsonKey(name: 'work_order') String? workOrder,
+    @JsonKey(name: 'purchase_order') String? purchaseOrder,
+    @JsonKey(name: 'subcontracting_order') String? subcontractingOrder,
+    @JsonKey(name: 'delivery_note_no') String? deliveryNoteNo,
+    @JsonKey(name: 'sales_invoice_no') String? salesInvoiceNo,
+    @JsonKey(name: 'pick_list') String? pickList,
+    @JsonKey(name: 'purchase_receipt_no') String? purchaseReceiptNo,
+    @JsonKey(name: 'asset_repair') String? assetRepair,
+    @JsonKey(name: 'ewaybill') String? ewaybill,
+    @JsonKey(name: 'company') String? company,
+    @JsonKey(name: 'posting_date') String? postingDate,
+    @JsonKey(name: 'posting_time') String? postingTime,
+    @JsonKey(name: 'set_posting_time') int? setPostingTime,
+    @JsonKey(name: 'inspection_required') int? inspectionRequired,
+    @JsonKey(name: 'apply_putaway_rule') int? applyPutawayRule,
+    @JsonKey(name: 'from_bom') int? fromBom,
+    @JsonKey(name: 'use_multi_level_bom') int? useMultiLevelBom,
+    @JsonKey(name: 'bom_no') String? bomNo,
+    @JsonKey(name: 'fg_completed_qty') double? fgCompletedQty,
+    @JsonKey(name: 'process_loss_percentage') double? processLossPercentage,
+    @JsonKey(name: 'process_loss_qty') double? processLossQty,
+    @JsonKey(name: 'from_warehouse') String? fromWarehouse,
+    @JsonKey(name: 'source_warehouse_address')
+    String? sourceWarehouseAddress,
+    @JsonKey(name: 'source_address_display')
+    String? sourceAddressDisplay,
+    @JsonKey(name: 'to_warehouse') String? toWarehouse,
+    @JsonKey(name: 'target_warehouse_address')
+    String? targetWarehouseAddress,
+    @JsonKey(name: 'target_address_display')
+    String? targetAddressDisplay,
+    @JsonKey(name: 'scan_barcode') String? scanBarcode,
+    @JsonKey(name: 'custom_barcode') String? customBarcode,
+    @JsonKey(name: 'tax_category') String? taxCategory,
+    @JsonKey(name: 'taxes_and_charges') String? taxesAndCharges,
+    @JsonKey(name: 'total_taxes') double? totalTaxes,
+    @JsonKey(name: 'base_grand_total') double? baseGrandTotal,
+    @JsonKey(name: 'total_outgoing_value') double? totalOutgoingValue,
+    @JsonKey(name: 'total_incoming_value') double? totalIncomingValue,
+    @JsonKey(name: 'value_difference') double? valueDifference,
+    @JsonKey(name: 'total_additional_costs')
+    double? totalAdditionalCosts,
+    @JsonKey(name: 'supplier') String? supplier,
+    @JsonKey(name: 'supplier_name') String? supplierName,
+    @JsonKey(name: 'supplier_address') String? supplierAddress,
+    @JsonKey(name: 'address_display') String? addressDisplay,
+    @JsonKey(name: 'bill_from_address') String? billFromAddress,
+    @JsonKey(name: 'bill_from_gstin') String? billFromGstin,
+    @JsonKey(name: 'bill_from_gst_category')
+    String? billFromGstCategory,
+    @JsonKey(name: 'bill_to_address') String? billToAddress,
+    @JsonKey(name: 'bill_to_gstin') String? billToGstin,
+    @JsonKey(name: 'bill_to_gst_category')
+    String? billToGstCategory,
+    @JsonKey(name: 'place_of_supply') String? placeOfSupply,
+    @JsonKey(name: 'ship_from_address') String? shipFromAddress,
+    @JsonKey(name: 'ship_to_address') String? shipToAddress,
+    @JsonKey(name: 'transporter') String? transporter,
+    @JsonKey(name: 'gst_transporter_id') String? gstTransporterId,
+    @JsonKey(name: 'lr_no') String? lrNo,
+    @JsonKey(name: 'vehicle_no') String? vehicleNo,
+    @JsonKey(name: 'distance') int? distance,
+    @JsonKey(name: 'transporter_name') String? transporterName,
+    @JsonKey(name: 'mode_of_transport') String? modeOfTransport,
+    @JsonKey(name: 'lr_date') String? lrDate,
+    @JsonKey(name: 'gst_vehicle_type') String? gstVehicleType,
+    @JsonKey(name: 'project') String? project,
+    @JsonKey(name: 'select_print_heading')
+    String? selectPrintHeading,
+    @JsonKey(name: 'letter_head') String? letterHead,
+    @JsonKey(name: 'is_opening') String? isOpening,
+    @JsonKey(name: 'remarks') String? remarks,
+    @JsonKey(name: 'per_transferred') double? perTransferred,
+    @JsonKey(name: 'total_amount') double? totalAmount,
+    @JsonKey(name: 'job_card') String? jobCard,
+    @JsonKey(name: 'amended_from') String? amendedFrom,
+    @JsonKey(name: 'credit_note') String? creditNote,
+    @JsonKey(name: 'is_return') int? isReturn,
+    }) = _StockEntry;
+factory StockEntry.fromJson(Map<String, dynamic> json) => _$StockEntryFromJson(json);
+}

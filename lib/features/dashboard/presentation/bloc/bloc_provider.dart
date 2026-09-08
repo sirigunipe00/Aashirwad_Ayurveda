@@ -12,9 +12,9 @@ typedef DashboardURLState = NetworkRequestState<String>;
 
 @injectable
 class DashboardBlocProvider {
-  final DashboardRepo repo;
 
   const DashboardBlocProvider({required this.repo});
+  final DashboardRepo repo;
 
   static DashboardBlocProvider get() => $sl.get<DashboardBlocProvider>();
 

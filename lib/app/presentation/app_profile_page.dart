@@ -13,7 +13,7 @@ class AppProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final role = context.user.roleProfileName;
+    // final role = context.user.roleProfileName;
 
     return AppPageView(
       mode: PageMode.profile, 

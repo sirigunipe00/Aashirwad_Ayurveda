@@ -37,7 +37,7 @@ class GateRegistrationRepoImpl extends BaseApiRepository
       final response = await post(config);
       return response.process((docNo) {
         final msgWithDocNo =
-            """The Gate Registration details - "${docNo.data}" have been saved successfully. Please submit it before leaving""";
+            '''The Gate Registration details - "${docNo.data}" have been saved successfully. Please submit it before leaving''';
         return right(Pair(docNo.data.valueOrEmpty, msgWithDocNo));
       });
     });
@@ -64,7 +64,7 @@ class GateRegistrationRepoImpl extends BaseApiRepository
       final response = await post(config);
       return response.process((docNo) {
         final msgWithDocNo =
-            """Gate Registration ${docNo.data} is submitted successfully.""";
+            '''Gate Registration ${docNo.data} is submitted successfully.''';
         return right(Pair(docNo.data.valueOrEmpty, msgWithDocNo));
       });
     });

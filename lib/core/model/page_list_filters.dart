@@ -2,6 +2,8 @@
 import 'package:equatable/equatable.dart';
 
 class PageListFilters extends Equatable {
+
+  factory PageListFilters.initial() => const PageListFilters(status: 'Draft');
   const PageListFilters({required this.status, this.query});
 
   final String status;
@@ -9,8 +11,6 @@ class PageListFilters extends Equatable {
   
   @override
   List<Object?> get props => [status, query];
-
-  factory PageListFilters.initial() => const PageListFilters(status: 'Draft');
 
   PageListFilters copyWith({
     String? status,

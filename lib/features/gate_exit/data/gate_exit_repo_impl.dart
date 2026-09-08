@@ -97,9 +97,11 @@ class GateExitRepoImpl extends BaseApiRepository implements GateExitRepo {
       );
 
       final response = await post(config);
+      $logger..devLog('response:$response')
+    ..devLog('response:$config');
       return response.process((docNo) {
         final msgWithDocNo =
-            """The Gate Exit details "${docNo.data}" have been saved successfully. Please submit it before leaving""";
+            '''The Gate Exit details "${docNo.data}" have been saved successfully. Please submit it before leaving''';
         return right(Pair(docNo.data.valueOrEmpty, msgWithDocNo));
       });
     });
@@ -124,9 +126,10 @@ class GateExitRepoImpl extends BaseApiRepository implements GateExitRepo {
       );
       $logger.devLog(config);
       final response = await post(config);
+      
       return response.process((docNo) {
         final msgWithDocNo =
-            """Gate Exit "${docNo.data}" Submitted successfully.""";
+            '''Gate Exit "${docNo.data}" Submitted successfully.''';
         return right(Pair(docNo.data.valueOrEmpty, msgWithDocNo));
       });
     });
